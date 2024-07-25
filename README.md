@@ -93,7 +93,7 @@ fly tokens create deploy -x 999999h
 - In the “Repository Secrets” section, add “New repository secret” with name FLY_API_TOKEN and the value as just generated.
 - Make sure your pipeline setup is working by making a change to the HTML in the class HomePage and seeing that it changes in the deployed service.
 8. Join the game, see: https://extreme-startup.fly.dev/ (you will be given the `game id` in the lab)
-
+ 
 # Troubleshooting
 
 ### debug running app
