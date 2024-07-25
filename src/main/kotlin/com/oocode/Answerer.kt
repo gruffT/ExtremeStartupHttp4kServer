@@ -26,7 +26,7 @@ class Answerer {
             return question.split("power").map { it.filter { it.isDigit() }.toInt() }
                 .map { it.toDouble() }
                 .reduce { acc, i -> pow(acc, i) }
-                .toInt().toString()
+                .toLong().toString()
         } else if (question.contains("largest")) {
             return question.split(":")[1]
                 .filter { it.isDigit() || it == ',' }
