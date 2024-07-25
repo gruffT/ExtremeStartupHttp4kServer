@@ -28,6 +28,10 @@ class ExtremeStartupHttp4kServerTest {
     fun canAnswer25Plus50() {
         assertThat(app(Request(GET, "?q=What+is+25+plus+50%3F")), equalTo(Response(OK).body("75")))
     }
+    @Test
+    fun canAnswer25Plus5() {
+        assertThat(app(Request(GET, "?q=What+is+25+plus+5%3F")), equalTo(Response(OK).body("30")))
+    }
 
 
     @Test
@@ -42,6 +46,11 @@ class ExtremeStartupHttp4kServerTest {
     fun `canAnswerMyName using real running service`() {
         val httpClient = JavaHttpClient()
         assertThat(httpClient(Request(GET, "http://localhost:8124?q=What+is+your+name%3F")), hasBody("GT"))
+    }
+
+    @Test
+    fun `can answer largest number`() {
+            assertThat(app(Request(GET, "?q=Which+of+the+following+numbers+is+the+largest:+72,+3,+25%3F")), equalTo(Response(OK).body("72")))
     }
 
     companion object {
