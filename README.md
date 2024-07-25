@@ -41,7 +41,7 @@ Usage:
 ...
 ```
 then the "fly" CLI is already installed.
-
+ 
 Otherwise:
 ```bash
 brew install flyctl
