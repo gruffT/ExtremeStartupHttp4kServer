@@ -21,6 +21,16 @@ class ExtremeStartupHttp4kServerTest {
     }
 
     @Test
+    fun canAnswer24Plus50() {
+        assertThat(app(Request(GET, "?q=What+is+24+plus+50%3F")), equalTo(Response(OK).body("74")))
+    }
+    @Test
+    fun canAnswer25Plus50() {
+        assertThat(app(Request(GET, "?q=What+is+25+plus+50%3F")), equalTo(Response(OK).body("75")))
+    }
+
+
+    @Test
     fun showsHomePageIfMissingQueryString() {
         assertThat(app(Request(GET, "/")), hasBody(containsSubstring("<html>")))
     }
