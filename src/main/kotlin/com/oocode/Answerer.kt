@@ -12,11 +12,15 @@ class Answerer {
             return question.split("multiplied").map { it.filter { it.isDigit() }.toInt() }
                 .fold(1) { acc, i -> acc * i }
                 .toString()
-        }else if (question.contains("largest")){
+        } else if (question.contains("minus")) {
+            return question.split("minus").map { it.filter { it.isDigit() }.toInt() }
+                .reduce { acc, i -> acc - i }
+                .toString()
+        } else if (question.contains("largest")) {
             return question.split(":")[1]
                 .filter { it.isDigit() || it == ',' }
                 .split(",")
-                .map{ it.toInt() }
+                .map { it.toInt() }
                 .max()
                 .toString()
         } else {
