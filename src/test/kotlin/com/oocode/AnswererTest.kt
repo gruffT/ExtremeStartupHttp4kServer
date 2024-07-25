@@ -10,4 +10,10 @@ class AnswererTest {
         val contents = Answerer().answerFor("What is your name?")
         assertThat(contents, equalTo("GT"))
     }
+
+    @Test
+    fun canAnswer5Multiply10() {
+        val contents = Answerer().answerFor("What is 99 multiplied by 6?")
+        assertThat(contents, equalTo("594"))
+    }
 }

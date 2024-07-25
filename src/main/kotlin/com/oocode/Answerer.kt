@@ -8,7 +8,11 @@ class Answerer {
             return question.split("plus").map { it.filter { it.isDigit() }.toInt() }
                 .sum()
                 .toString()
-        } else if (question.contains("largest")){
+        } else if (question.contains("multiplied")) {
+            return question.split("multiplied").map { it.filter { it.isDigit() }.toInt() }
+                .fold(1) { acc, i -> acc * i }
+                .toString()
+        }else if (question.contains("largest")){
             return question.split(":")[1]
                 .filter { it.isDigit() || it == ',' }
                 .split(",")
