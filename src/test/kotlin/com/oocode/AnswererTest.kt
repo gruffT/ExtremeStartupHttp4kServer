@@ -28,4 +28,10 @@ class AnswererTest {
         val contents = Answerer().answerFor("What is 1 plus 2 plus 3?")
         assertThat(contents, equalTo("6"))
     }
+
+    @Test
+    fun canAnswerPower() {
+        val contents = Answerer().answerFor("What is 3 to the power of 2?")
+        assertThat(contents, equalTo("9"))
+    }
 }

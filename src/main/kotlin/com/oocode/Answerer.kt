@@ -1,5 +1,7 @@
 package com.oocode
 
+import java.lang.Math.pow
+
 class Answerer {
     fun answerFor(question: String): String {
         if (question == "What is your name?") {
@@ -16,6 +18,11 @@ class Answerer {
             return question.split("minus").map { it.filter { it.isDigit() }.toInt() }
                 .reduce { acc, i -> acc - i }
                 .toString()
+        } else if (question.contains("power")) {
+            return question.split("power").map { it.filter { it.isDigit() }.toInt() }
+                .map { it.toDouble() }
+                .reduce { acc, i -> pow(acc, i) }
+                .toInt().toString()
         } else if (question.contains("largest")) {
             return question.split(":")[1]
                 .filter { it.isDigit() || it == ',' }
