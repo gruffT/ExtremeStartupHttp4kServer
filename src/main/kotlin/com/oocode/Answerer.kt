@@ -3,6 +3,10 @@ package com.oocode
 import java.lang.Math.pow
 
 class Answerer {
+    val listOfPrimes =
+        "2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97".split(", ")
+            .map { it.toInt() }
+
     fun answerFor(question: String): String {
         if (question == "What is your name?") {
             return "GT"
@@ -30,6 +34,13 @@ class Answerer {
                 .map { it.toInt() }
                 .max()
                 .toString()
+        } else if (question.contains("primes")) {
+            return question.split(":")[1]
+                .filter { it.isDigit() || it == ',' }
+                .split(",")
+                .map { it.toInt() }
+                .filter { listOfPrimes.contains(it) }
+                .joinToString(", ")
         } else {
             return "Argh Pirates"
         }

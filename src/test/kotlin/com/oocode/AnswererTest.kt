@@ -34,4 +34,9 @@ class AnswererTest {
         val contents = Answerer().answerFor("What is 3 to the power of 2?")
         assertThat(contents, equalTo("9"))
     }
+    @Test
+    fun canAnswerPrime() {
+        val contents = Answerer().answerFor("Which of the following numbers are primes: 63, 68, 8, 39, 17?")
+        assertThat(contents, equalTo("17"))
+    }
 }
